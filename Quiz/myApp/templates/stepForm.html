@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        .form-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: #ddd;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-container">
+        <h2>Multi-Step Form</h2>
+
+        {% for question, answers in ques_answers %}
+        <!-- Step 1 -->
+         {% if forloop.first %}
+             <div class="step active" id="step{{forloop.counter}}">        
+         {% else %}
+            <div class="step" id="step{{forloop.counter}}">
+        {% endif %}
+            <h3>Step {{forloop.counter}}: Personal Information</h3>
+            <div class="form-buttons">
+                {% if forloop.first %}
+                <button id="prevBtn" onclick="moveStep(-1)" disabled>Previous</button>
+                {% else %}
+                <button id="prevBtn" onclick="moveStep(-1)">Previous</button>
+                {% endif %}
+                
+                
+                {% if forloop.last %}
+                <button>Submit</button>
+                {% else %}
+                <button id="nextBtn" onclick="moveStep(1)">Next</button>
+                {% endif %}
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+
+</body>
+
+</html>
