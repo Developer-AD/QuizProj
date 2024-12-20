@@ -125,21 +125,21 @@ function moveStep(step) {
 
   // Disable/Enable buttons based on current step
   if (currentStep === 1) {
-    $("#prevBtn").prop("disabled", true);
+    $(".prevBtn").prop("disabled", true);
   } else {
-    $("#prevBtn").prop("disabled", false);
+    $(".prevBtn").prop("disabled", false);
   }
 
   if (currentStep === totalSteps) {
-    $("#nextBtn").prop("disabled", true);
+    $(".nextBtn").prop("disabled", true);
     // Show confirmation on the last step (if needed)
   } else {
-    $("#nextBtn").prop("disabled", false);
+    $(".nextBtn").prop("disabled", false);
   }
 }
 
 // Initial setup: Move to the first step
-// $(document).ready(function () {
-//   $("#prevBtn").prop("disabled", true);
-//   $("#nextBtn").prop("disabled", false);
-// });
+$(document).ready(function () {
+  $(".prevBtn").prop("disabled", true);
+  $(".nextBtn").prop("disabled", false);
+});

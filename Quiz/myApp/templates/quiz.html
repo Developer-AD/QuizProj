@@ -11,22 +11,6 @@
 
 <body>
     <main>
-        <!-- <div class="app">
-            <h1>Simple Quiz</h1>
-            <div class="quiz">
-                {% for question, answers in ques_answers %}
-                <h2 id="question">{{forloop.counter}}. {{question}}</h2>
-                <div id="answer-buttons">
-                    {% for answer in answers %}
-                        <button class="ans-btn" id="{{question.id}}-{{answer.id}}" onclick="checkAnswer('{{question.id}}-{{answer.id}}', '{{answer.correct}}')">{{forloop.counter}}. {{answer}}</button>
-                    {% endfor %}
-                </div>
-                {% endfor %}
-                <button id="nextBtn">Next</button>
-            </div>
-        </div> -->
-
-
             {% for question, answers in ques_answers %}
 
             {% if forloop.first %}
@@ -48,8 +32,8 @@
                                 {% endfor %}
                             </div>
                         
-                            <button id="prevBtn" onclick="moveStep(-1)">Previous</button>
-                            <button id="nextBtn" onclick="moveStep(1)">Next</button>
+                            <button class="prevBtn" onclick="moveStep(-1)">Previous</button>
+                            <button class="nextBtn" onclick="moveStep(1)">Next</button>
                         </div>
                     </div>
                 </div>

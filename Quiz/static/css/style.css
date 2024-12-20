@@ -73,7 +73,7 @@ main {
   cursor: no-drop;
 }
 
-#nextBtn, #prevBtn {
+.nextBtn, .prevBtn {
     background: #001e4d;
     color: #fff;
     font-weight: 500;
@@ -87,7 +87,7 @@ main {
   /* display: block; */
   /* display: none; */
 }
-  #nextBtn:disabled, #prevBtn:disabled {
+  .nextBtn:disabled, .prevBtn:disabled {
     background: #ddd;
   }
 
